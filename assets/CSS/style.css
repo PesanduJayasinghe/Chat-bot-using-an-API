@@ -1,116 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
-  font-family: "Inter", "Segoe UI", Arial, Helvetica, sans-serif;
-  background: #5d5d63;
-  margin: 0;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-  color: #1a1a1a;
+    font-family: "Inter", "Segoe UI", Arial, Helvetica, sans-serif;
+    background: url(/assets/images/download.jpg) no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    color: #1a1a1a;
 }
 
-/* Chat Container */
+
 #chat-container {
-  width: 750px;
-  max-width: 100%;
-  background: #9c9a9a;
-  display: flex;
-  flex-direction: column;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-  overflow: hidden;
+    width: 750px;
+    max-width: 100%;
+    background: #9c9a9a;
+    display: flex;
+    flex-direction: column;
+    border-radius: 12px;
+    box-shadow: 0 10px 70px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    transform: scale(1);
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out, background 0.3s ease-out;
 }
 
-/* Header like ChatGPT */
+#chat-container:hover {
+    transform: scale(1.02);
+    background: #ffffff;
+    box-shadow: 0 15px 80px rgba(0, 0, 0, 0.15);
+}
+
+
 #chat-header {
-  padding: 14px 20px;
-  background: #024736;
-  color: #fff;
-  font-weight: 600;
-  font-size: 15px;
+    padding: 14px 20px;
+    background: #0dd403;
+    color: #fff;
+    font-weight: 600;
+    font-size: 20px;
+    text-align: center;
 }
 
-/* Messages Area */
+
 #messages {
-  flex: 1;
-  padding: 20px;
-  overflow-y: auto;
-  background: #f7f7f8;
+    flex: 1; 
+    padding: 20px;
+    overflow-y: auto; 
+    background: url(/assets/images/download\ \(1\).jpg) no-repeat center top;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    gap: 8px; 
 }
 
-/* Scrollbar */
+
 #messages::-webkit-scrollbar {
-  width: 8px;
-}
-#messages::-webkit-scrollbar-thumb {
-  background: #ccc;
-  border-radius: 4px;
+    width: 8px;
 }
 
-/* Message Bubbles */
-.message {
-  max-width: 85%;
-  padding: 14px 18px;
-  margin: 12px 0;
-  border-radius: 12px;
-  line-height: 1.5;
-  font-size: 15px;
-  white-space: pre-wrap;
+#messages::-webkit-scrollbar-thumb {
+    background: #000000;
+    border-radius: 4px;
 }
+
+
+.message {
+    display: inline-block;      
+    padding: 10px 16px;
+    margin: 4px 0;
+    border-radius: 12px;
+    line-height: 1.5;
+    font-size: 15px;
+    white-space: pre-wrap;
+    word-break: break-word;
+    max-width: 80%;        
+    opacity: 0;
+    transform: scale(0.8);
+    animation: zoomIn 0.3s ease forwards;
+}
+
 
 .user {
-  background: #10a37f;
-  color: #fff;
-  margin-left: auto;
-  border-bottom-right-radius: 4px;
+    background: #1bff4c;
+    color: #000000;
+    margin-left: auto;
+    border-bottom-right-radius: 4px;
 }
 
 .bot {
-  background: #e5e5e5;
-  color: #1a1a1a;
-  margin-right: auto;
-  border-bottom-left-radius: 4px;
+    background: #e5e5e5;
+    color: #1a1a1a;
+    margin-right: auto;
+    border-bottom-left-radius: 4px;
 }
 
-/* Input Row */
+
+@keyframes zoomIn {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
 #input-container {
-  display: flex;
-  padding: 14px;
-  border-top: 1px solid #ddd;
-  background: #fff;
+    display: flex;
+    padding: 14px;
+    border-top: 1px solid #ddd;
+    background: #403f3f;
+    flex-shrink: 0;
 }
 
 #input {
-  flex: 1;
-  padding: 12px 14px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 15px;
-  outline: none;
-  transition: border 0.2s;
+    flex: 1;
+    padding: 12px 14px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none;
+    transition: border 0.2s;
 }
 
 #input:focus {
-  border-color: #10a37f;
+    border-color: #10a37f;
 }
 
 #send-btn {
-  margin-left: 10px;
-  padding: 0 20px;
-  border: none;
-  border-radius: 8px;
-  background: #10a37f;
-  color: #fff;
-  font-size: 15px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.2s;
+    margin-left: 10px;
+    padding: 0 20px;
+    border: none;
+    border-radius: 8px;
+    background: #10a37f;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
 }
 
 #send-btn:hover {
-  background: #87da02;
+    background: #02bdda;
 }
