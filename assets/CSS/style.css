@@ -1,7 +1,119 @@
-body{
-    all: unset
+* {
+  box-sizing: border-box;
 }
 
-h1{
-    all: unset;
+body {
+  font-family: "Inter", "Segoe UI", Arial, Helvetica, sans-serif;
+  background: linear-gradient(135deg, #ece9f7, #f4f7fb);
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Chat Container */
+#chat-container {
+  width: 420px;
+  max-width: 95%;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Messages Area */
+#messages {
+  flex: 1;
+  height: 360px;
+  overflow-y: auto;
+  border: none;
+  padding: 12px;
+  margin-bottom: 14px;
+  border-radius: 12px;
+  background: #fafafa;
+  box-shadow: inset 0 0 8px rgba(0,0,0,0.03);
+  scroll-behavior: smooth;
+}
+
+/* Scrollbar */
+#messages::-webkit-scrollbar {
+  width: 6px;
+}
+#messages::-webkit-scrollbar-thumb {
+  background: #c8c8d4;
+  border-radius: 4px;
+}
+#messages::-webkit-scrollbar-thumb:hover {
+  background: #a3a3b5;
+}
+
+/* Message Bubbles */
+.message {
+  margin: 8px 0;
+  padding: 10px 14px;
+  border-radius: 18px;
+  max-width: 80%;
+  line-height: 1.4;
+  font-size: 14px;
+  word-wrap: break-word;
+}
+
+.user {
+  background: #4f46e5;
+  color: #fff;
+  margin-left: auto;
+  border-bottom-right-radius: 4px;
+}
+
+.bot {
+  background: #eaeefc;
+  color: #1a1a2e;
+  margin-right: auto;
+  border-bottom-left-radius: 4px;
+}
+
+/* Input + Button Row */
+#input {
+  flex: 1;
+  padding: 12px 14px;
+  border: 1px solid #dcdcdc;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+
+#input:focus {
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
+}
+
+#send-btn {
+  margin-left: 8px;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 8px;
+  background: #4f46e5;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+#send-btn:hover {
+  background: #4338ca;
+}
+
+#send-btn:active {
+  transform: scale(0.97);
+}
+
+/* Input Row Layout */
+#chat-container > div:last-child {
+  display: flex;
+  align-items: center;
 }
